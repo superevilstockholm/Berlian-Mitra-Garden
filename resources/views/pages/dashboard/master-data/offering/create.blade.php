@@ -64,16 +64,16 @@
                         <div class="form-floating mb-3">
                             <select name="type" id="floatingInputType" class="form-select @error('type') is-invalid @enderror" required>
                                 <option value="" {{ old('type') ? '' : 'selected' }} disabled>
-                                    Select Type
+                                    Pilih Jenis
                                 </option>
                                 @foreach (OfferingTypeEnum::cases() as $type)
                                     <option value="{{ $type->value }}"
                                         {{ old('type') == $type->value ? 'selected' : '' }}>
-                                        {{ ucfirst(strtolower($type->value)) }}
+                                        {{ $type->label() }}
                                     </option>
                                 @endforeach
                             </select>
-                            <label for="floatingInputType">Type <span class="text-danger">*</span></label>
+                            <label for="floatingInputType">Jenis <span class="text-danger">*</span></label>
                             @error('type')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

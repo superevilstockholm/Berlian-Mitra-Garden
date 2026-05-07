@@ -72,16 +72,16 @@
                                 <div class="form-floating">
                                     <select name="type" id="filterGender" class="form-select @error('type') is-invalid @enderror">
                                         <option value="" {{ old('type', request('type')) === null || old('type', request('type')) === '' ? 'selected' : '' }}>
-                                            All Type
+                                            Semua Jenis
                                         </option>
                                         @foreach (OfferingTypeEnum::cases() as $type)
                                             <option value="{{ $type->value }}"
                                                 {{ old('type', request('type')) == $type->value ? 'selected' : '' }}>
-                                                {{ ucfirst(strtolower($type->value)) }}
+                                                {{ $type->label() }}
                                             </option>
                                         @endforeach
                                     </select>
-                                    <label for="filterGender">Type</label>
+                                    <label for="filterGender">Jenis</label>
                                     @error('type')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
