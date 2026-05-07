@@ -76,7 +76,7 @@ class VisionController extends Controller
             Vision::create($validated);
         });
 
-        return redirect()->route('dashboard.master-data.visions.index')->with('success', 'Berhasil menambahkan visi.');
+        return redirect()->route('dashboard.master-data.visions.index')->with('success', 'Berhasil membuat visi.');
     }
 
     /**
@@ -128,14 +128,25 @@ class VisionController extends Controller
             $vision->update($validated);
         });
 
-        return redirect()->route('dashboard.master-data.visions.index')->with('Berhasil memperbarui visi.');
+        return redirect()->route('dashboard.master-data.visions.index')->with('success', 'Berhasil memperbarui visi.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vision $vision)
+    public function destroy(Vision $vision): RedirectResponse
     {
-        //
+        DB::transaction(function () use ($vision) {
+            $vision = Vision::where('id', $vision->id)
+                ->lockForUpdate()
+                ->first();
+            $deletedOrder = $vision->order;
+            $vision->delete();
+            Vision::where('order', '>', $deletedOrder)
+                ->lockForUpdate()
+                ->decrement('order');
+        });
+
+        return redirect()->route('dashboard.master-data.visions.index')->with('success', 'Berhasil menghapus visi.');
     }
 }
