@@ -82,9 +82,11 @@ class VisionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vision $vision)
+    public function show(Vision $vision): View
     {
-        //
+        return view('pages.dashboard.master-data.vision.show', [
+            'vision' => $vision,
+        ]);
     }
 
     /**
