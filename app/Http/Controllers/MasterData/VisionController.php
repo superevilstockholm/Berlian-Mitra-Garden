@@ -4,7 +4,6 @@ namespace App\Http\Controllers\MasterData;
 
 use Carbon\Carbon;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -15,6 +14,7 @@ use App\Models\MasterData\Vision;
 // Requests
 use App\Http\Requests\MasterData\Vision\IndexRequest;
 use App\Http\Requests\MasterData\Vision\StoreRequest;
+use App\Http\Requests\MasterData\Vision\UpdateRequest;
 
 class VisionController extends Controller
 {
@@ -92,17 +92,43 @@ class VisionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vision $vision)
+    public function edit(Vision $vision): View
     {
-        //
+        $allowedMaxOrder = Vision::count();
+        return view('pages.dashboard.master-data.vision.show', [
+            'vision' => $vision,
+            'allowedMaxOrder' => $allowedMaxOrder,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vision $vision)
+    public function update(UpdateRequest $request, Vision $vision): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        DB::transaction(function () use ($validated, $vision) {
+            $vision = Vision::where('id', $vision->id)
+                ->lockForUpdate()
+                ->first();
+            if ($validated['order'] != $vision->order) {
+                if ($validated['order'] < $vision->order) {
+                    Vision::where('order', '>=', $validated['order'])
+                        ->where('order', '<', $vision->order)
+                        ->lockForUpdate()
+                        ->increment('order');
+                } else {
+                    Vision::where('order', '>', $vision->order)
+                        ->where('order', '<=', $validated['order'])
+                        ->lockForUpdate()
+                        ->decrement('order');
+                }
+            }
+            $vision->update($validated);
+        });
+
+        return redirect()->route('dashboard.master-data.visions.index')->with('Berhasil memperbarui visi.');
     }
 
     /**
