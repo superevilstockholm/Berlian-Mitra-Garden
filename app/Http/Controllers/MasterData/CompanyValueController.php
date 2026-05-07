@@ -137,8 +137,19 @@ class CompanyValueController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CompanyValue $companyValue)
+    public function destroy(CompanyValue $companyValue): RedirectResponse
     {
-        //
+        DB::transaction(function () use ($companyValue) {
+            $companyValue = CompanyValue::where('id', $companyValue->id)
+                ->lockForUpdate()
+                ->first();
+            $deletedOrder = $companyValue->order;
+            $companyValue->delete();
+            CompanyValue::where('order', '>', $deletedOrder)
+                ->lockForUpdate()
+                ->decrement('order');
+        });
+
+        return redirect()->route('dashboard.master-data.company-value.index')->with('success', 'Berhasil menghapus nilai perusahaan.');
     }
 }
