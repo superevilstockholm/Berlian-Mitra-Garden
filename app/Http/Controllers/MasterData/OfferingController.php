@@ -117,8 +117,13 @@ class OfferingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Offering $offering)
+    public function destroy(Offering $offering): RedirectResponse
     {
-        //
+        if ($offering->image_path && Storage::disk('public')->exists($offering->image_path)) {
+            Storage::disk('public')->delete($offering->image_path);
+        }
+        $offering->delete();
+
+        return redirect()->route('dashboard.master-data.offerings.index')->with('success', 'Berhasil menghapus ' . $offering->type->label() . '.');
     }
 }
