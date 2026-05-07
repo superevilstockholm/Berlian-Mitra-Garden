@@ -85,9 +85,11 @@ class CompanyValueController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CompanyValue $companyValue)
+    public function show(CompanyValue $companyValue): View
     {
-        //
+        return view('pages.dashboard.master-data.company-value.show', [
+            'company_value' => $companyValue,
+        ]);
     }
 
     /**
