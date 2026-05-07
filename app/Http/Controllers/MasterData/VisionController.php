@@ -57,7 +57,7 @@ class VisionController extends Controller
     public function create(): View
     {
         $allowedMaxOrder = Vision::count() + 1;
-        return view('pages.dashboard.master-data.vision.index', [
+        return view('pages.dashboard.master-data.vision.create', [
             'allowedMaxOrder' => $allowedMaxOrder,
         ]);
     }
@@ -95,7 +95,7 @@ class VisionController extends Controller
     public function edit(Vision $vision): View
     {
         $allowedMaxOrder = Vision::count();
-        return view('pages.dashboard.master-data.vision.show', [
+        return view('pages.dashboard.master-data.vision.edit', [
             'vision' => $vision,
             'allowedMaxOrder' => $allowedMaxOrder,
         ]);
