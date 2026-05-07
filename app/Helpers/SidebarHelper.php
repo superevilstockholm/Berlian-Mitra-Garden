@@ -10,6 +10,7 @@ if (!function_exists('sidebarItems')) {
             'master data' => [
                 ['label' => 'visions', 'icon' => 'ti ti-target', 'route' => 'dashboard.master-data.visions.index', 'activePattern' => 'dashboard.mamster-data.visions.*'],
                 ['label' => 'missions', 'icon' => 'ti ti-list-check', 'route' => 'dashboard.master-data.missions.index', 'activePattern' => 'dashboard.mamster-data.missions.*'],
+                ['label' => 'company values', 'icon' => 'ti ti-heart', 'route' => 'dashboard.master-data.company-values.index', 'activePattern' => 'dashboard.mamster-data.company-values.*'],
             ],
         ];
     }
