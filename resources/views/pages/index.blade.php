@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>Index Page</h1>
+                    <h3>Index Page</h3>
                 </div>
             </div>
         </div>
