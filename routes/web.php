@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 // Auth Controller
 use App\Http\Controllers\AuthController;
 
+// Master Data Controllers
+use App\Http\Controllers\MasterData\VisionController;
+
 Route::get('/', fn () => view('pages.index'))->name('index');
 
 Route::middleware(['guest'])->group(function () {
@@ -18,5 +21,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::get('/', fn () => view('pages.dashboard.index'))->name('index');
+
+        Route::prefix('master-data')->name('master-data.')->group(function () {
+            Route::resource('visions', VisionController::class)->parameters([
+                'visions' => 'vision',
+            ]);
+        });
     });
 });
