@@ -4,7 +4,7 @@
     <x-topbar></x-topbar>
     <div class="pc-container">
         <div class="pc-content">
-            <div class="row mb-4">
+            <div class="row mb-3">
                 <div class="col">
                     @php
                         $segments = collect(request()->segments());
