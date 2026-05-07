@@ -66,6 +66,22 @@
                                     <label for="filterContent">Content</label>
                                 </div>
                             </div>
+                            {{-- Start Order --}}
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating">
+                                    <input type="number" name="start_order" class="form-control form-control-sm"
+                                        id="filterStartOrder" placeholder="Start Order" value="{{ request('start_order') }}" min="1">
+                                    <label for="filterStartOrder">Start Order</label>
+                                </div>
+                            </div>
+                            {{-- End Order --}}
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating">
+                                    <input type="number" name="end_order" class="form-control form-control-sm"
+                                        id="filterEndOrder" placeholder="End Order" value="{{ request('end_order') }}" min="1">
+                                    <label for="filterEndOrder">End Order</label>
+                                </div>
+                            </div>
                             {{-- Start Date --}}
                             <div class="col-12 col-md-6">
                                 <div class="form-floating">
