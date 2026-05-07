@@ -6,12 +6,14 @@ use Carbon\Carbon;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 // Models
 use App\Models\MasterData\Offering;
 
 // Requests
 use App\Http\Requests\MasterData\Offering\IndexRequest;
+use App\Http\Requests\MasterData\Offering\StoreRequest;
 
 class OfferingController extends Controller
 {
@@ -51,17 +53,25 @@ class OfferingController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('pages.dashboard.master-data.offering.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        if ($request->hasFile('image_file')) {
+            $validated['image_path'] = $request->file('image_file')->store('offering', 'public');
+        }
+
+        $offering = Offering::create($validated);
+
+        return redirect()->route('dashboard.master-data.offerings.index')->with('success', 'Berhasil membuat ' . $offering->type->label() . '.');
     }
 
     /**

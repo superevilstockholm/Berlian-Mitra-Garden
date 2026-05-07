@@ -11,7 +11,7 @@ enum OfferingTypeEnum: string
     {
         return match ($this) {
             self::PRODUCT => 'Produk',
-            self::SERVICE => 'Jasa',
+            self::SERVICE => 'Layanan',
         };
     }
 }
