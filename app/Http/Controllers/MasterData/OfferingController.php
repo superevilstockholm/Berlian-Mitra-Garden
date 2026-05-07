@@ -4,9 +4,9 @@ namespace App\Http\Controllers\MasterData;
 
 use Carbon\Carbon;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 // Models
 use App\Models\MasterData\Offering;
@@ -14,6 +14,7 @@ use App\Models\MasterData\Offering;
 // Requests
 use App\Http\Requests\MasterData\Offering\IndexRequest;
 use App\Http\Requests\MasterData\Offering\StoreRequest;
+use App\Http\Requests\MasterData\Offering\UpdateRequest;
 
 class OfferingController extends Controller
 {
@@ -77,25 +78,40 @@ class OfferingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Offering $offering)
+    public function show(Offering $offering): View
     {
-        //
+        return view('pages.dashboard.master-data.offering.show', [
+            'offering' => $offering,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Offering $offering)
+    public function edit(Offering $offering): View
     {
-        //
+        return view('pages.dashboard.master-data.offering.edit', [
+            'offering' => $offering,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Offering $offering)
+    public function update(UpdateRequest $request, Offering $offering): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        if ($request->hasFile('image_file')) {
+            if ($offering->image_path && Storage::disk('public')->exists($offering->image_path)) {
+                Storage::disk('public')->delete($offering->image_path);
+            }
+            $validated['image_path'] = $request->file('image_file')->store('offering', 'public');
+        }
+
+        $offering->update($validated);
+
+        return redirect()->route('dashboard.master-data.offerings.index')->with('success', 'Berhasil memperbarui ' . $offering->type->label() . '.');
     }
 
     /**
