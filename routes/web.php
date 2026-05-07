@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 // Master Data Controllers
 use App\Http\Controllers\MasterData\VisionController;
 use App\Http\Controllers\MasterData\MissionController;
+use App\Http\Controllers\MasterData\OfferingController;
 use App\Http\Controllers\MasterData\CompanyValueController;
 
 Route::get('/', fn () => view('pages.index'))->name('index');
@@ -33,6 +34,9 @@ Route::middleware(['auth'])->group(function () {
             ]);
             Route::resource('company-values', CompanyValueController::class)->parameters([
                 'company-values' => 'companyValue',
+            ]);
+            Route::resource('offerings', OfferingController::class)->parameters([
+                'offerings' => 'offering',
             ]);
         });
     });
