@@ -131,7 +131,7 @@ class CompanyValueController extends Controller
             $companyValue->update($validated);
         });
 
-        return redirect()->route('dashboard.master-data.company-value.index')->with('success', 'Berhasil memperbarui nilai perusahaan.');
+        return redirect()->route('dashboard.master-data.company-values.index')->with('success', 'Berhasil memperbarui nilai perusahaan.');
     }
 
     /**
@@ -150,6 +150,6 @@ class CompanyValueController extends Controller
                 ->decrement('order');
         });
 
-        return redirect()->route('dashboard.master-data.company-value.index')->with('success', 'Berhasil menghapus nilai perusahaan.');
+        return redirect()->route('dashboard.master-data.company-values.index')->with('success', 'Berhasil menghapus nilai perusahaan.');
     }
 }
