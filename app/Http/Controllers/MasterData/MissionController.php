@@ -82,9 +82,11 @@ class MissionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Mission $mission)
+    public function show(Mission $mission): View
     {
-        //
+        return view('pages.dashboard.master-data.mission.show', [
+            'mission' => $mission,
+        ]);
     }
 
     /**
