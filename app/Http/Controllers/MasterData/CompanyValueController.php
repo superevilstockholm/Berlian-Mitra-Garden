@@ -4,7 +4,6 @@ namespace App\Http\Controllers\MasterData;
 
 use Carbon\Carbon;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -15,6 +14,7 @@ use App\Models\MasterData\CompanyValue;
 // Requests
 use App\Http\Requests\MasterData\CompanyValue\IndexRequest;
 use App\Http\Requests\MasterData\CompanyValue\StoreRequest;
+use App\Http\Requests\MasterData\CompanyValue\UpdateRequest;
 
 class CompanyValueController extends Controller
 {
@@ -95,17 +95,43 @@ class CompanyValueController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CompanyValue $companyValue)
+    public function edit(CompanyValue $companyValue): View
     {
-        //
+        $allowedMaxOrder = CompanyValue::count();
+        return view('pages.dashboard.master-data.company-value.edit', [
+            'company_value' => $companyValue,
+            'allowedMaxOrder' => $allowedMaxOrder,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CompanyValue $companyValue)
+    public function update(UpdateRequest $request, CompanyValue $companyValue): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        DB::transaction(function () use ($validated, $companyValue) {
+            $companyValue = CompanyValue::where('id', $companyValue->id)
+                ->lockForUpdate()
+                ->first();
+            if ($validated['order'] != $companyValue->order) {
+                if ($validated['order'] < $companyValue->order) {
+                    CompanyValue::where('order', '>=', $validated['order'])
+                        ->where('order', '<', $companyValue->order)
+                        ->lockForUpdate()
+                        ->increment('order');
+                } else {
+                    CompanyValue::where('order', '>', $companyValue->order)
+                        ->where('order', '<=', $validated['order'])
+                        ->lockForUpdate()
+                        ->decrement('order');
+                }
+            }
+            $companyValue->update($validated);
+        });
+
+        return redirect()->route('dashboard.master-data.company-value.index')->with('success', 'Berhasil memperbarui nilai perusahaan.');
     }
 
     /**
