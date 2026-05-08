@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 // Models
 use App\Models\MasterData\User;
 
+// Enums
+use App\Enums\ActivityMethodEnum;
+
 #[Fillable(['user_id', 'user_name', 'method', 'route_path', 'route_name', 'ip_address', 'user_agent', 'payload', 'status_code'])]
 class ActivityLog extends Model
 {
@@ -23,6 +26,7 @@ class ActivityLog extends Model
         return [
             'payload' => 'array',
             'status_code' => 'integer',
+            'method' => ActivityMethodEnum::class,
         ];
     }
 
