@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'name' => config('admin.name'),
             'email' => config('admin.email'),
             'password' => config('admin.password'),
+            'email_verified_at' => now(),
         ]);
     }
 }

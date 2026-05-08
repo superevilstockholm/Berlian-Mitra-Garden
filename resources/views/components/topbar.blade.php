@@ -81,7 +81,7 @@
                                         echo $greeting . ',';
                                     ?>
                                 </span>
-                                <span class="small text-muted text-truncate d-inline-block fs-09" style="max-width: 120px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{ auth()->user()?->name ?? 'Unknown' }}</span>
+                                <span class="small text-muted text-truncate d-inline-block fs-09" style="max-width: 120px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{ auth()->user()?->formatted_name ?? 'Unknown' }}</span>
                             </h4>
                             <hr />
                             <div class="profile-notification-scroll position-relative"

@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 // Attributes
-use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Attributes\Appends;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 
 #[Fillable(['name', 'email', 'password'])]
+#[Appends(['formatted_name'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -28,5 +30,16 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function getFormattedNameAttribute(): string
+    {
+        return collect(explode(' ', $this->name))
+            ->map(function ($word) {
+                return ctype_upper($word)
+                    ? $word
+                    : ucwords(strtolower($word));
+            })
+            ->implode(' ');
     }
 }

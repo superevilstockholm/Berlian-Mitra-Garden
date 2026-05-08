@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 // Master Data Controllers
+use App\Http\Controllers\MasterData\UserController;
 use App\Http\Controllers\MasterData\VisionController;
 use App\Http\Controllers\MasterData\MissionController;
 use App\Http\Controllers\MasterData\OfferingController;
@@ -26,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', fn () => view('pages.dashboard.index'))->name('index');
 
         Route::prefix('master-data')->name('master-data.')->group(function () {
+            Route::resource('users', UserController::class)->parameters([
+                'users' => 'user',
+            ]);
             Route::resource('visions', VisionController::class)->parameters([
                 'visions' => 'vision',
             ]);
