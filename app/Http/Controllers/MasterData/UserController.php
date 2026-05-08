@@ -6,12 +6,14 @@ use Carbon\Carbon;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 // Models
 use App\Models\MasterData\User;
 
 // Requests
 use App\Http\Requests\MasterData\User\IndexRequest;
+use App\Http\Requests\MasterData\User\StoreRequest;
 
 class UserController extends Controller
 {
@@ -51,17 +53,21 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('pages.dashboard.master-data.user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        User::create($validated);
+
+        return redirect()->route('dashboard.master-data.users.index')->with('success', 'Berhasil membuat pengguna.');
     }
 
     /**
