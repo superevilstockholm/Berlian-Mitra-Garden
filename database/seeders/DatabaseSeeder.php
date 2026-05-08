@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 // Models
-use App\Models\User;
+use App\Models\MasterData\User;
 
 class DatabaseSeeder extends Seeder
 {
