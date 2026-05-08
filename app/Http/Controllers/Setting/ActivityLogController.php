@@ -62,8 +62,10 @@ class ActivityLogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ActivityLog $activityLog)
+    public function show(ActivityLog $activityLog): View
     {
-        //
+        return view('pages.dashboard.setting.activity-log.show', [
+            'activity_log' => $activityLog->load(['user']),
+        ]);
     }
 }
