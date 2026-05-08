@@ -33,8 +33,13 @@ class UserController extends Controller
         if (isset($validated['email'])) {
             $query->where('email', 'ILIKE', '%' . $validated['email'] . '%');
         }
-        if ($request->boolean('verified_email')) {
-            $query->whereNotNull('email_verified_at');
+        if (isset($validated['verified_email'])) {
+            if ($request->boolean('verified_email')) {
+                $query->whereNotNull('email_verified_at');
+            }
+            if (!$request->boolean('verified_email')) {
+                $query->whereNull('email_verified_at');
+            }
         }
         if (isset($validated['start_date'])) {
             $query->where('created_at', '>=', Carbon::parse($validated['start_date'])->startOfDay());
