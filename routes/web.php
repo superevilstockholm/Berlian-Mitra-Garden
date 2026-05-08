@@ -12,6 +12,9 @@ use App\Http\Controllers\MasterData\MissionController;
 use App\Http\Controllers\MasterData\OfferingController;
 use App\Http\Controllers\MasterData\CompanyValueController;
 
+// Setting Controllers
+use App\Http\Controllers\Setting\ActivityLogController;
+
 Route::get('/', fn () => view('pages.index'))->name('index');
 
 Route::middleware(['guest'])->group(function () {
@@ -20,7 +23,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 // Protected
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'activity-log'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout_attempt'])->name('logout.attempt');
 
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
@@ -42,6 +45,12 @@ Route::middleware(['auth'])->group(function () {
             Route::resource('offerings', OfferingController::class)->parameters([
                 'offerings' => 'offering',
             ]);
+        });
+
+        Route::prefix('setting')->name('setting.')->group(function () {
+            Route::resource('activity-logs', ActivityLogController::class)->parameters([
+                'activity-logs' => 'activityLog',
+            ])->only(['index', 'show']);
         });
     });
 });

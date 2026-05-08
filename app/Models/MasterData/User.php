@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Attributes\Appends;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 
+// Models
+use App\Models\Setting\ActivityLog;
+
 #[Fillable(['name', 'email', 'password'])]
 #[Appends(['formatted_name'])]
 #[Hidden(['password', 'remember_token'])]
@@ -40,5 +43,10 @@ class User extends Authenticatable
                     : ucwords(strtolower($word));
             })
             ->implode(' ');
+    }
+
+    public function activityLogs()
+    {
+        return $this->hasMany(ActivityLog::class);
     }
 }

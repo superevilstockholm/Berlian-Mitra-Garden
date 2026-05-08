@@ -7,6 +7,9 @@ use Illuminate\Foundation\Configuration\Middleware;
 // Auth Middleware
 use App\Http\Middleware\Auth\GuestMiddleware;
 
+// Activity Log Middleware
+use App\Http\Middleware\ActivityLogMiddleware;
+
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
@@ -17,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectGuestsTo(fn () => route('login.view'));
         $middleware->alias([
             'guest' => GuestMiddleware::class,
+            'activity-log' => ActivityLogMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
