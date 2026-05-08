@@ -20,7 +20,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 // Protected
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'activity-log'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout_attempt'])->name('logout.attempt');
 
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
