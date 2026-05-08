@@ -26,13 +26,16 @@ class AuthController extends Controller
     {
         $validated = $request->validated();
 
-        if (!Auth::attempt($validated)) {
+        if (!Auth::attempt([
+            'email' => $validated['email'],
+            'password' => $validated['password'],
+        ], $request->boolean('remember'))) {
             return back()->withErrors('Email atau Kata Sandi salah.')->withInput();
         }
 
         $request->session()->regenerate();
 
-        return redirect()->route('dashboard.index')->with('success', 'Berhail masuk.');
+        return redirect()->route('dashboard.index')->with('success', 'Berhasil masuk.');
     }
 
     public function logout_attempt(Request $request): RedirectResponse
