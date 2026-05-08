@@ -25,7 +25,6 @@ class IndexRequest extends FormRequest
             'limit' => ['sometimes', 'nullable', 'integer', 'min:1', 'max:100'],
             'name' => ['sometimes', 'nullable', 'string', 'max:255'],
             'email' => ['sometimes', 'nullable', 'string', 'max:255'],
-            'verified_email' => ['sometimes', 'nullable', 'boolean'],
             'start_date' => ['sometimes', 'nullable', 'date'],
             'end_date' => ['sometimes', 'nullable', 'date', 'after_or_equal:start_date'],
         ];

@@ -73,26 +73,6 @@
                                     <label for="filterEmail">Email</label>
                                 </div>
                             </div>
-                            {{-- Status --}}
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <select name="verified_email" id="filterGender" class="form-select @error('verified_email') is-invalid @enderror">
-                                        <option value="" {{ old('verified_email', request('verified_email')) === null ? 'selected' : '' }}>
-                                            Semua Status
-                                        </option>
-                                        <option value="1" {{ old('verified_email', request('verified_email')) === 1 ? 'selected' : '' }}>
-                                            Terverifikasi
-                                        </option>
-                                        <option value="0" {{ old('verified_email', request('verified_email')) === 0 ? 'selected' : '' }}>
-                                            Belum Terverifikasi
-                                        </option>
-                                    </select>
-                                    <label for="filterGender">Status</label>
-                                    @error('verified_email')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
                             {{-- Start Date --}}
                             <div class="col-12 col-md-6">
                                 <div class="form-floating">
@@ -132,7 +112,6 @@
                                     <th class="text-center">#</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Verified</th>
                                     <th>Created At</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -149,11 +128,6 @@
                                         </td>
                                         <td>{{ $user->formatted_name ?? '-' }}</td>
                                         <td>{{ $user->email ?? '-' }}</td>
-                                        <td>
-                                            <span class="px-3 badge border rounded-pill {{ $user->email_verified_at ? 'border-success text-success' : 'border-danger text-danger' }}">
-                                                {{ $user->email_verified_at ? 'Yes' : 'No' }}
-                                            </span>
-                                        </td>
                                         <td>{{ $user->created_at?->format('d M Y H:i') }}</td>
                                         <td class="text-center">
                                             <div class="dropdown">
@@ -187,7 +161,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="6" class="text-center">
+                                        <td colspan="5" class="text-center">
                                             <div class="alert alert-warning my-2" role="alert">
                                                 No user records found for the selected filters.
                                             </div>

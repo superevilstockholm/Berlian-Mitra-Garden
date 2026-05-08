@@ -33,10 +33,6 @@
                         <div class="col-md-4 text-muted">Email</div>
                         <div class="col-md-8 fw-medium">{{ $user->email ?? '-' }}</div>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-md-4 text-muted">Email Verified At</div>
-                        <div class="col-md-8 fw-medium">{{ $user->email_verified_at ?? 'Belum Diverifikasi' }}</div>
-                    </div>
                     <h4 class="card-title fw-semibold mt-4 mb-3">System Information</h4>
                     <div class="row mb-3">
                         <div class="col-md-4 text-muted">User ID</div>
