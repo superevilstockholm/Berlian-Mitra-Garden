@@ -1,7 +1,6 @@
 @extends('layouts.dashboard')
 @section('title', 'Vision Details')
 @section('content')
-    <x-alerts :errors="$errors" />
     <div class="row mb-4">
         <div class="col">
             <div class="card my-0">

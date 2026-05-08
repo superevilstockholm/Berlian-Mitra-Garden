@@ -4,7 +4,6 @@ namespace App\Http\Controllers\MasterData;
 
 use Carbon\Carbon;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
@@ -14,6 +13,7 @@ use App\Models\MasterData\User;
 // Requests
 use App\Http\Requests\MasterData\User\IndexRequest;
 use App\Http\Requests\MasterData\User\StoreRequest;
+use App\Http\Requests\MasterData\User\UpdateRequest;
 
 class UserController extends Controller
 {
@@ -88,17 +88,27 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(User $user): View
     {
-        //
+        return view('pages.dashboard.master-data.user.edit', [
+            'user' => $user,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateRequest $request, User $user): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        if (!isset($validated['password'])) {
+            unset($validated['password']);
+        }
+
+        $user->update($validated);
+
+        return redirect()->route('dashboard.master-data.users.index')->with('success', 'Berhasil memperbarui pengguna.');
     }
 
     /**
