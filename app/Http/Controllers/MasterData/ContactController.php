@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MasterData;
 use Carbon\Carbon;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 // Models
 use App\Models\MasterData\Contact;
@@ -60,8 +61,10 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Contact $contact)
+    public function destroy(Contact $contact): RedirectResponse
     {
-        //
+        $contact->delete();
+
+        return redirect()->route('dashboard.master-data.contacts.index')->with('success', 'Berhasil menghapus kontak.');
     }
 }
