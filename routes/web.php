@@ -18,6 +18,8 @@ use App\Http\Controllers\Setting\ActivityLogController;
 
 Route::get('/', fn () => view('pages.index'))->name('index');
 
+Route::post('/contact-us', [ContactController::class, 'contact_attempt'])->name('contact.attempt');
+
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'login_view'])->name('login.view');
     Route::post('/login', [AuthController::class, 'login_attempt'])->name('login.attempt');

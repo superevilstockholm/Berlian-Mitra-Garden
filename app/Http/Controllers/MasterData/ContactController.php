@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\MasterData\Contact;
 
 // Requests
+use App\Http\Requests\ContactAttemptRequest;
 use App\Http\Requests\MasterData\Contact\IndexRequest;
 
 class ContactController extends Controller
@@ -66,5 +67,14 @@ class ContactController extends Controller
         $contact->delete();
 
         return redirect()->route('dashboard.master-data.contacts.index')->with('success', 'Berhasil menghapus kontak.');
+    }
+
+    public function contact_attempt(ContactAttemptRequest $request): RedirectResponse
+    {
+        $validated = $request->validated();
+
+        Contact::create($validated);
+
+        return redirect()->route('index')->with('success', 'Berhasil mengirim pesan.');
     }
 }
