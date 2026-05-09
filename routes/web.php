@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MasterData\UserController;
 use App\Http\Controllers\MasterData\VisionController;
 use App\Http\Controllers\MasterData\MissionController;
+use App\Http\Controllers\MasterData\ContactController;
 use App\Http\Controllers\MasterData\OfferingController;
 use App\Http\Controllers\MasterData\CompanyValueController;
 
@@ -44,6 +45,9 @@ Route::middleware(['auth', 'activity-log'])->group(function () {
             ]);
             Route::resource('offerings', OfferingController::class)->parameters([
                 'offerings' => 'offering',
+            ]);
+            Route::resource('contacts', ContactController::class)->parameters([
+                'contacts' => 'contact',
             ]);
         });
 
