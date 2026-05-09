@@ -48,7 +48,7 @@ Route::middleware(['auth', 'activity-log'])->group(function () {
             ]);
             Route::resource('contacts', ContactController::class)->parameters([
                 'contacts' => 'contact',
-            ]);
+            ])->only(['index', 'show', 'destroy']);
         });
 
         Route::prefix('setting')->name('setting.')->group(function () {

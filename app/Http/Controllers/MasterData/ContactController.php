@@ -50,9 +50,11 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Contact $contact)
+    public function show(Contact $contact): View
     {
-        //
+        return view('pages.dashboard.master-data.contact.show', [
+            'contact' => $contact,
+        ]);
     }
 
     /**
