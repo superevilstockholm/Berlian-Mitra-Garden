@@ -75,6 +75,6 @@ class ContactController extends Controller
 
         Contact::create($validated);
 
-        return redirect()->route('index')->with('success', 'Berhasil mengirim pesan.');
+        return redirect()->route('index.view')->with('success', 'Berhasil mengirim pesan.');
     }
 }
