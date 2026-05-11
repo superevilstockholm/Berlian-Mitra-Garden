@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Public Controller
+use App\Http\Controllers\PublicController;
+
 // Auth Controller
 use App\Http\Controllers\AuthController;
 
@@ -17,13 +20,13 @@ use App\Http\Controllers\MasterData\CompanyValueController;
 // Setting Controllers
 use App\Http\Controllers\Setting\ActivityLogController;
 
-Route::get('/', fn () => view('pages.index'))->name('index');
+Route::get('/', [PublicController::class, 'index_view'])->name('index.view');
 
-Route::post('/contact-us', [ContactController::class, 'contact_attempt'])->name('contact.attempt');
+Route::post('/contact-us', [ContactController::class, 'contact_attempt'])->middleware('turnstile')->name('contact.attempt');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'login_view'])->name('login.view');
-    Route::post('/login', [AuthController::class, 'login_attempt'])->name('login.attempt');
+    Route::post('/login', [AuthController::class, 'login_attempt'])->middleware('turnstile')->name('login.attempt');
 });
 
 // Protected

@@ -36,6 +36,9 @@
                                         Remember Me
                                     </label>
                                 </div>
+                                <div class="cf-turnstile mb-3"
+                                    data-sitekey="{{ config('services.turnstile.site_key') }}">
+                                </div>
                                 <button class="btn btn-sm btn-primary w-100 fw-medium" type="submit">Login</button>
                             </form>
                         </div>
@@ -56,6 +59,7 @@
     </style>
 @endpush
 @push('js')
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
         const togglePassword = document.getElementById('togglePassword');
         const password = document.getElementById('password');

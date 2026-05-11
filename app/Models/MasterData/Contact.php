@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 // Attributes
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 
-#[Fillable(['name', 'email', 'message'])]
+#[Fillable(['name', 'email', 'phone', 'message'])]
 class Contact extends Model
 {
     //

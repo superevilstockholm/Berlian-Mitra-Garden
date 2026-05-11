@@ -24,6 +24,7 @@ class ContactAttemptRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:255'],
+            'phone' => ['nullable', 'string', 'max:20'],
             'message' => ['required', 'string'],
         ];
     }
