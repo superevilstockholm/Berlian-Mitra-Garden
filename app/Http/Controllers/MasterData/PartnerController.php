@@ -4,9 +4,9 @@ namespace App\Http\Controllers\MasterData;
 
 use Carbon\Carbon;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 // Models
 use App\Models\MasterData\Partner;
@@ -14,6 +14,7 @@ use App\Models\MasterData\Partner;
 // Requests
 use App\Http\Requests\MasterData\Partner\IndexRequest;
 use App\Http\Requests\MasterData\Partner\StoreRequest;
+use App\Http\Requests\MasterData\Partner\UpdateRequest;
 
 class PartnerController extends Controller
 {
@@ -104,17 +105,32 @@ class PartnerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Partner $partner)
+    public function edit(Partner $partner): View
     {
-        //
+        $allowedMaxOrder = Partner::count();
+        return view('pages.dashboard.master-data.partner.edit', [
+            'partner' => $partner,
+            'allowedMaxOrder' => $allowedMaxOrder,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Partner $partner)
+    public function update(UpdateRequest $request, Partner $partner): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        if ($request->hasFile('logo_file')) {
+            if ($partner->logo_path && Storage::disk('public')->exists($partner->logo_path)) {
+                Storage::disk('public')->delete($partner->logo_path);
+            }
+            $validated['logo_path'] = $request->file('logo_file')->store('partner', 'public');
+        }
+
+        $partner->update($validated);
+
+        return redirect()->route('dashboard.master-data.partners.index')->with('success', 'Berhasil memperbarui partner.');
     }
 
     /**
