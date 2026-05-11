@@ -136,8 +136,14 @@ class PartnerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Partner $partner)
+    public function destroy(Partner $partner): RedirectResponse
     {
-        //
+        if ($partner->logo_path && Storage::disk('public')->exists($partner->logo_path)) {
+            Storage::disk('public')->delete($partner->logo_path);
+        }
+
+        $partner->delete();
+        
+        return redirect()->route('dashboard.master-data.partners.index')->with('success', 'Berhasil menghapus partner.');
     }
 }
