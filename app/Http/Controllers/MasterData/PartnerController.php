@@ -6,12 +6,14 @@ use Carbon\Carbon;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 // Models
 use App\Models\MasterData\Partner;
 
 // Requests
 use App\Http\Requests\MasterData\Partner\IndexRequest;
+use App\Http\Requests\MasterData\Partner\StoreRequest;
 
 class PartnerController extends Controller
 {
@@ -65,17 +67,28 @@ class PartnerController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        $allowedMaxOrder = Partner::count() + 1;
+        return view('pages.dashboard.master-data.partner.create', [
+            'allowedMaxOrder' => $allowedMaxOrder,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        if ($request->hasFile('logo_file')) {
+            $validated['logo_path'] = $request->file('logo_file')->store('partner', 'public');
+        }
+
+        Partner::create($validated);
+
+        return redirect()->route('dashboard.master-data.partners.index')->with('success', 'Berhasil membuat partner.');
     }
 
     /**

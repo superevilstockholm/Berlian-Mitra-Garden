@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Attributes\Appends;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 
-#[Fillable(['name'. 'logo_path', 'website_url', 'description', 'is_featured', 'order'])]
+#[Fillable(['name', 'logo_path', 'website_url', 'description', 'is_featured', 'order'])]
 #[Appends(['logo_url'])]
 class Partner extends Model
 {

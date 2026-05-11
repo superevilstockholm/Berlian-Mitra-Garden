@@ -49,7 +49,7 @@ Route::middleware(['auth', 'activity-log'])->group(function () {
             Route::resource('offerings', OfferingController::class)->parameters([
                 'offerings' => 'offering',
             ]);
-            Route::resource('partners', MissionController::class)->parameters([
+            Route::resource('partners', PartnerController::class)->parameters([
                 'partners' => 'partner',
             ]);
             Route::resource('contacts', ContactController::class)->parameters([
