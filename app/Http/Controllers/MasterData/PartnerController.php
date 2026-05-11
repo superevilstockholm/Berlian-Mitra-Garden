@@ -94,9 +94,11 @@ class PartnerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Partner $partner)
+    public function show(Partner $partner): View
     {
-        //
+        return view('pages.dashboard.master-data.partner.show', [
+            'partner' => $partner,
+        ]);
     }
 
     /**
