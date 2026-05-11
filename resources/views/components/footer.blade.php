@@ -22,7 +22,7 @@
                             </a>
                         </div>
                         <div class="col-12 reveal">
-                            <b>SMAN 6 Tangerang</b> is an educational institution that is committed to producing a superior, character-based, and globally competitive generation.
+                            <b>{{ config('app.name') }}</b> is an Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quo eum blanditiis.
                         </div>
                     </div>
                 </div>
