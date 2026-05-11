@@ -4,6 +4,9 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
+// Turnstile Middleware
+use App\Http\Middleware\VerifyTurnstileMiddleware;
+
 // Auth Middleware
 use App\Http\Middleware\Auth\GuestMiddleware;
 
@@ -21,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'guest' => GuestMiddleware::class,
             'activity-log' => ActivityLogMiddleware::class,
+            'turnstile' => VerifyTurnstileMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
