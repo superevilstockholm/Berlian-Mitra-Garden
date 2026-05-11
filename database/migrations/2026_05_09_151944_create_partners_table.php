@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('logo_path')->nullable(); 
+            $table->string('logo_path');
             $table->string('website_url')->nullable();
             $table->text('description')->nullable();
             $table->boolean('is_featured')->default(false);
