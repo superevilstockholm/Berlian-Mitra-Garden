@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary-dark fixed-top sticky-lg-top" data-bs-theme="dark">
     <div class="container">
-        <a class="navbar-brand fw-medium py-0" href="{{ route('index') }}">
+        <a class="navbar-brand fw-medium py-0" href="{{ route('index.view') }}">
             <img height="47" src="{{ asset('static/img/logo.svg') }}" alt="Logo {{ config('app.name') }}">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -10,14 +10,23 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav fw-medium gap-lg-3 align-items-lg-center">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('index') ? 'active' : '' }}"
-                        aria-current="{{ request()->routeIs('index') ? 'page' : false }}"
-                        href="{{ route('index') }}">Home</a>
+                    <a class="nav-link" aria-current="page" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#visions-and-missions">Visions & Missions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#company-values">Company Values</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#offerings">Offerings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#partners">Partners</a>
                 </li>
                 <li class="nav-item">
                     <div class="nav-link">
-                        <a class="btn btn-sm btn-light fw-semibold px-3 d-inline-flex align-items-center gap-2 text-primary-dark contact-us-btn"
-                            href="#">
+                        <a class="btn btn-sm btn-light fw-semibold px-3 d-inline-flex align-items-center gap-2 text-primary-dark contact-us-btn" href="#contact-us">
                             Contact Us
                             <i class="bi bi-arrow-right-short text-primary-dark"></i>
                         </a>
