@@ -1,6 +1,75 @@
 @extends('layouts.base')
 @section('title', 'Beranda')
 @section('content')
+    <section id="vision-and-missions">
+        <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="vision">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-primary">
+                            <span class="bg-primary d-block me-3 me-lg-4"
+                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
+                            Our Vision
+                        </h1>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        @foreach ($visions as $vision)
+                            <p class="fs-5 text-secondary mb-3 reveal">
+                                {{ $vision->content }}
+                            </p>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                <div class="d-flex align-items-start">
+                    <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
+                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                        <div class="bg-primary-dark" style="flex: 2; height: 30px;"></div>
+                        <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                        <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                        <div class="bg-primary-dark" style="flex: 1; height: 30px;"></div>
+                    </div>
+                    <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12 col-lg-7">
+                        <ul class="list-unstyled">
+                            @foreach ($missions as $mission)
+                                <li class="text-white mb-3 d-flex align-items-start reveal">
+                                    <span class="me-3 mt-2" style="width: 8px; height: 8px; background-color: white; transform: rotate(45deg); flex-shrink: 0;"></span>
+                                    <span class="fs-5">{{ $mission->content }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-white">
+                            <span class="bg-white d-block me-3 me-lg-4"
+                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
+                            Our Missions
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                <div class="d-flex align-items-start">
+                    <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                        <div class="bg-body" style="flex: 2; height: 30px;"></div>
+                        <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                        <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                        <div class="bg-body" style="flex: 1; height: 30px;"></div>
+                    </div>
+                    <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="contact-us">
         <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="contact-form">
             <div class="container">
@@ -163,6 +232,8 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            initReveal('#vision .reveal', 100);
+            initReveal('#missions .reveal', 100);
             initReveal('#contact-form .reveal', 100);
             initReveal('#contact-map .reveal', 100);
             initReveal('#contact-option .reveal', 150);
