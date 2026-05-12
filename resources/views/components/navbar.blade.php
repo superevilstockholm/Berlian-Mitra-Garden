@@ -13,7 +13,7 @@
                     <a class="nav-link" aria-current="page" href="#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#visions-and-missions">Visions & Missions</a>
+                    <a class="nav-link" aria-current="page" href="#vision-and-missions">Visions & Missions</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#company-values">Company Values</a>

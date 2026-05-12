@@ -33,7 +33,7 @@
                             <a class="nav-link" href="#about">About</a>
                         </div>
                         <div class="nav-item">
-                            <a class="nav-link" href="#visions-and-missions">Visions & Missions</a>
+                            <a class="nav-link" href="#vision-and-missions">Visions & Missions</a>
                         </div>
                         <div class="nav-item">
                             <a class="nav-link" href="#company-values">Company Values</a>
