@@ -5,7 +5,7 @@
         <div class="container-fluid" data-bs-theme="dark">
             <div class="row">
                 <div class="col px-0 position-relative">
-                    <img class="w-100 h-100 object-fit-cover" style="max-height: 530px;"
+                    <img class="w-100 h-100 object-fit-cover" style="max-height: 580px;"
                         src="{{ asset('static/img/hero-image.jpg') }}" alt="{{ config('app.name') }} Hero Image">
                     <div
                         class="position-absolute z-1 w-100 h-100 d-flex align-items-center justify-content-center top-0 start-0 bg-dark bg-opacity-50 pb-30px pb-lg-60px">
