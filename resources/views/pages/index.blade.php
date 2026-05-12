@@ -1,6 +1,32 @@
 @extends('layouts.base')
 @section('title', 'Beranda')
 @section('content')
+    <section class="position-relative">
+        <div class="container-fluid" data-bs-theme="dark">
+            <div class="row">
+                <div class="col px-0 position-relative">
+                    <img class="w-100 h-100 object-fit-cover" style="max-height: 530px;"
+                        src="{{ asset('static/img/hero-image.jpg') }}" alt="{{ config('app.name') }} Hero Image">
+                    <div
+                        class="position-absolute z-1 w-100 h-100 d-flex align-items-center justify-content-center top-0 start-0 bg-dark bg-opacity-50 pb-30px pb-lg-60px">
+                        <h1 class="p-0 m-0 text-white fw-bold display-4">{{ config('app.name') }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+            <div class="d-flex align-items-start">
+                <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                    <div class="bg-body" style="flex: 2; height: 30px;"></div>
+                    <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                    <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                    <div class="bg-body" style="flex: 1; height: 30px;"></div>
+                </div>
+                <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+            </div>
+        </div>
+    </section>
     <section id="vision-and-missions">
         <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="vision">
             <div class="container">
