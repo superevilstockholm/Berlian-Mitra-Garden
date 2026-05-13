@@ -28,22 +28,57 @@
         </div>
     </section>
     <section id="vision-and-missions">
-        <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="vision">
+        <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="vision">
             <div class="container">
                 <div class="row g-4 g-lg-5">
                     <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4"
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-white">
+                            <span class="bg-white d-block me-3 me-lg-4"
                                 style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
                             Our Vision
                         </h1>
                     </div>
                     <div class="col-12 col-lg-6">
                         @foreach ($visions as $vision)
-                            <p class="fs-5 text-secondary mb-3 reveal">
+                            <p class="fs-5 text-white reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
                                 {{ $vision->content }}
                             </p>
                         @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                <div class="d-flex align-items-start">
+                    <div class="bg-white flex-grow-1" style="height: 30px;"></div>
+                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                        <div class="bg-white" style="flex: 2; height: 30px;"></div>
+                        <div class="bg-white" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                        <div class="bg-white" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                        <div class="bg-white" style="flex: 1; height: 30px;"></div>
+                    </div>
+                    <div class="bg-white flex-grow-1" style="height: 30px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
+            <div class="container">
+                <div class="row g-4 g-lg-5 flex-column-reverse flex-lg-row">
+                    <div class="col-12 col-lg-6">
+                        <ul class="list-unstyled">
+                            @foreach ($missions as $mission)
+                                <li class="text-secondary d-flex align-items-start reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
+                                    <span class="me-3 mt-2" style="width: 10px; height: 10px; background-color: white; transform: rotate(45deg); flex-shrink: 0;"></span>
+                                    <span class="fs-5">{{ $mission->content }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-primary">
+                            <span class="bg-primary d-block me-3 me-lg-4"
+                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
+                            Our Missions
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -60,25 +95,30 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section id="company-values">
         <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
             <div class="container">
-                <div class="row g-4 g-lg-5">
-                    <div class="col-12 col-lg-7">
-                        <ul class="list-unstyled">
-                            @foreach ($missions as $mission)
-                                <li class="text-white mb-3 d-flex align-items-start reveal">
-                                    <span class="me-3 mt-2" style="width: 8px; height: 8px; background-color: white; transform: rotate(45deg); flex-shrink: 0;"></span>
-                                    <span class="fs-5">{{ $mission->content }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+                <div class="row g-4 g-lg-5 flex-column-reverse flex-lg-row">
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
                         <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-white">
                             <span class="bg-white d-block me-3 me-lg-4"
                                 style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
-                            Our Missions
+                            Company Values
                         </h1>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <ul class="list-unstyled">
+                            @foreach ($company_values as $company_value)
+                                <li class="text-white d-flex align-items-start reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
+                                    <span class="me-3 mt-2 bg-white" style="width: 10px; height: 10px; transform: rotate(45deg); flex-shrink: 0;"></span>
+                                    <div class="d-flex flex-column">
+                                        <h5>{{ $company_value->title }}</h5>
+                                        <span class="fs-5">{{ $company_value->description }}</span>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
