@@ -71,173 +71,233 @@
             </div>
         </div>
     </section>
-    <section id="vision-and-missions">
-        <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="vision">
-            <div class="container">
-                <div class="row g-4 g-lg-5">
-                    <div class="col-12 col-lg-6 mb-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
-                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0 square-point"
-                                style="transform: rotate(45deg);"></span>
-                            Visi Kami
-                        </h1>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        @foreach ($visions as $vision)
-                            <p class="fs-5 text-white reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
-                                {{ $vision->content }}
-                            </p>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
-                <div class="d-flex align-items-start">
-                    <div class="bg-white flex-grow-1" style="height: 30px;"></div>
-                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
-                        <div class="bg-white" style="flex: 2; height: 30px;"></div>
-                        <div class="bg-white" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
-                        <div class="bg-white" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
-                        <div class="bg-white" style="flex: 1; height: 30px;"></div>
-                    </div>
-                    <div class="bg-white flex-grow-1" style="height: 30px;"></div>
-                </div>
-            </div>
-        </div>
-        <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
-            <div class="container">
-                <div class="row g-4 g-lg-5 flex-column-reverse flex-lg-row">
-                    <div class="col-12 col-lg-6">
-                        <ul class="list-unstyled mb-0">
-                            @foreach ($missions as $mission)
-                                <li class="text-secondary d-flex align-items-start reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
-                                    <span class="me-3 mt-2 bg-primary" style="width: 10px; height: 10px; transform: rotate(45deg); flex-shrink: 0;"></span>
-                                    <span class="fs-5">{{ $mission->content }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-6 mb-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
-                                style="transform: rotate(45deg);"></span>
-                            Misi Kami
-                        </h1>
-                    </div>
-                </div>
-            </div>
-            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
-                <div class="d-flex align-items-start">
-                    <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
-                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
-                        <div class="bg-primary-dark" style="flex: 2; height: 30px;"></div>
-                        <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
-                        <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
-                        <div class="bg-primary-dark" style="flex: 1; height: 30px;"></div>
-                    </div>
-                    <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="company-values">
-        <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
-            <div class="container">
-                <div class="row g-4 g-lg-5 flex-column-lg-reverse flex-lg-row">
-                    <div class="col-12 col-lg-6 mb-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
-                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0 square-point"
-                                style="transform: rotate(45deg);"></span>
-                            Nilai-nilai Perusahaan
-                        </h1>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <ul class="list-unstyled mb-0">
-                            @foreach ($company_values as $company_value)
-                                <li class="text-white d-flex align-items-start reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
-                                    <span class="me-3 mt-2 bg-white" style="width: 10px; height: 10px; transform: rotate(45deg); flex-shrink: 0;"></span>
-                                    <div class="d-flex flex-column">
-                                        <h5>{{ $company_value->title }}</h5>
-                                        <span class="fs-5">{{ $company_value->description }}</span>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
-                <div class="d-flex align-items-start">
-                    <div class="bg-body flex-grow-1" style="height: 30px;"></div>
-                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
-                        <div class="bg-body" style="flex: 2; height: 30px;"></div>
-                        <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
-                        <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
-                        <div class="bg-body" style="flex: 1; height: 30px;"></div>
-                    </div>
-                    <div class="bg-body flex-grow-1" style="height: 30px;"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="offerings">
-        <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px">
-            <div class="container">
-                <div class="row g-4 g-lg-5">
-                    <div class="col-12">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start justify-content-center text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
-                                style="transform: rotate(45deg);"></span>
-                            Produk & Layanan
-                        </h1>
-                    </div>
-                    <div class="col-12">
-                        <div class="row g-3">
-                            @foreach ($offerings as $offering)
-                                <div class="col-12 col-md-6 col-lg-4 reveal">
-                                    <div class="card border-0 shadow-sm h-100 overflow-hidden">
-                                        <div class="card-header p-0 border-0 bg-transparent position-relative">
-                                            <img class="w-100 object-fit-cover"
-                                                src="{{ $offering->image_url }}"
-                                                alt="{{ $offering->name }}"
-                                                style="height: 220px;">
-                                            <div class="position-absolute top-0 end-0 p-3">
-                                                <span class="badge text-bg-light rounded-pill px-3 py-2 shadow-sm">
-                                                    {{ $offering->type->label() }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="card-body p-4 d-flex flex-column">
-                                            <h5 class="fw-bold mb-3">
-                                                {{ $offering->name }}
-                                            </h5>
-                                            @if ($offering->description)
-                                                <p class="text-secondary mb-0">
-                                                    {{ $offering->description }}
-                                                </p>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
+    @if ($visions->isNotEmpty())
+        <section id="vision-and-missions">
+            <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="vision">
+                <div class="container">
+                    <div class="row g-4 g-lg-5">
+                        <div class="col-12 col-lg-6 mb-0">
+                            <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
+                                <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                    style="transform: rotate(45deg);"></span>
+                                Visi Kami
+                            </h1>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            @foreach ($visions as $vision)
+                                <p class="fs-5 text-white reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
+                                    {{ $vision->content }}
+                                </p>
                             @endforeach
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
-                <div class="d-flex align-items-start">
-                    <div class="bg-body flex-grow-1" style="height: 30px;"></div>
-                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
-                        <div class="bg-body" style="flex: 2; height: 30px;"></div>
-                        <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
-                        <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
-                        <div class="bg-body" style="flex: 1; height: 30px;"></div>
+                <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-white flex-grow-1" style="height: 30px;"></div>
+                        <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                            <div class="bg-white" style="flex: 2; height: 30px;"></div>
+                            <div class="bg-white" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                            <div class="bg-white" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                            <div class="bg-white" style="flex: 1; height: 30px;"></div>
+                        </div>
+                        <div class="bg-white flex-grow-1" style="height: 30px;"></div>
                     </div>
-                    <div class="bg-body flex-grow-1" style="height: 30px;"></div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
+                <div class="container">
+                    <div class="row g-4 g-lg-5 flex-column-reverse flex-lg-row">
+                        <div class="col-12 col-lg-6">
+                            <ul class="list-unstyled mb-0">
+                                @foreach ($missions as $mission)
+                                    <li class="text-secondary d-flex align-items-start reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
+                                        <span class="me-3 mt-2 bg-primary" style="width: 10px; height: 10px; transform: rotate(45deg); flex-shrink: 0;"></span>
+                                        <span class="fs-5">{{ $mission->content }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-6 mb-0">
+                            <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-primary">
+                                <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                    style="transform: rotate(45deg);"></span>
+                                Misi Kami
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
+                        <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                            <div class="bg-primary-dark" style="flex: 2; height: 30px;"></div>
+                            <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                            <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                            <div class="bg-primary-dark" style="flex: 1; height: 30px;"></div>
+                        </div>
+                        <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    @if ($company_values->isNotEmpty())
+        <section id="company-values">
+            <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
+                <div class="container">
+                    <div class="row g-4 g-lg-5 flex-column-lg-reverse flex-lg-row">
+                        <div class="col-12 col-lg-6 mb-0">
+                            <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
+                                <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                    style="transform: rotate(45deg);"></span>
+                                Nilai-nilai Perusahaan
+                            </h1>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <ul class="list-unstyled mb-0">
+                                @foreach ($company_values as $company_value)
+                                    <li class="text-white d-flex align-items-start reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
+                                        <span class="me-3 mt-2 bg-white" style="width: 10px; height: 10px; transform: rotate(45deg); flex-shrink: 0;"></span>
+                                        <div class="d-flex flex-column">
+                                            <h5>{{ $company_value->title }}</h5>
+                                            <span class="fs-5">{{ $company_value->description }}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                        <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                            <div class="bg-body" style="flex: 2; height: 30px;"></div>
+                            <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                            <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                            <div class="bg-body" style="flex: 1; height: 30px;"></div>
+                        </div>
+                        <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    @if ($offerings->isNotEmpty())
+        <section id="offerings">
+            <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px">
+                <div class="container">
+                    <div class="row g-4 g-lg-5">
+                        <div class="col-12">
+                            <h1 class="display-6 fw-bold mb-0 d-flex align-items-start justify-content-center text-primary">
+                                <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                    style="transform: rotate(45deg);"></span>
+                                Produk & Layanan
+                            </h1>
+                        </div>
+                        <div class="col-12">
+                            <div class="row g-3">
+                                @foreach ($offerings as $offering)
+                                    <div class="col-12 col-md-6 col-lg-4 reveal">
+                                        <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                                            <div class="card-header p-0 border-0 bg-transparent position-relative">
+                                                <img class="w-100 object-fit-cover"
+                                                    src="{{ $offering->image_url }}"
+                                                    alt="{{ $offering->name }}"
+                                                    style="height: 220px;">
+                                                <div class="position-absolute top-0 end-0 p-3">
+                                                    <span class="badge text-bg-light rounded-pill px-3 py-2 shadow-sm">
+                                                        {{ $offering->type->label() }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="card-body p-4 d-flex flex-column">
+                                                <h5 class="fw-bold mb-3">
+                                                    {{ $offering->name }}
+                                                </h5>
+                                                @if ($offering->description)
+                                                    <p class="text-secondary mb-0">
+                                                        {{ $offering->description }}
+                                                    </p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                        <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                            <div class="bg-body" style="flex: 2; height: 30px;"></div>
+                            <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                            <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                            <div class="bg-body" style="flex: 1; height: 30px;"></div>
+                        </div>
+                        <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    @if ($partners->isNotEmpty())
+        <section id="partners">
+            <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px">
+                <div class="container">
+                    <div class="row g-4 g-lg-5">
+                        <div class="col-12 text-center">
+                            <h1 class="display-6 fw-bold mb-3 d-flex align-items-start justify-content-center text-white">
+                                <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                    style="transform: rotate(45deg);"></span>
+                                Partner Kami
+                            </h1>
+                            <p class="text-white-50 fs-5 mb-0">
+                                Dipercaya oleh berbagai perusahaan dan instansi
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="row g-3 g-lg-4 justify-content-center">
+                                @foreach ($partners as $partner)
+                                    <div class="col-6 col-md-4 col-lg-3 reveal">
+                                        @if ($partner->website_url)
+                                            <a href="{{ $partner->website_url }}"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="text-decoration-none">
+                                        @endif
+                                        <div class="partner-card h-100">
+                                            <div class="partner-logo-wrapper">
+                                                <img src="{{ $partner->logo_url }}"
+                                                    alt="{{ $partner->name }}"
+                                                    class="partner-logo">
+                                            </div>
+                                            <div class="text-center mt-4">
+                                                <h6 class="fw-bold text-white mb-2">
+                                                    {{ $partner->name }}
+                                                </h6>
+                                                @if ($partner->description)
+                                                    <p class="text-white-50 small mb-0">
+                                                        {{ $partner->description }}
+                                                    </p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        @if ($partner->website_url)
+                                            </a>
+                                        @endif
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
     <section id="contact-us">
         <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="contact-form">
             <div class="container">
@@ -397,6 +457,38 @@
         .square-point {
             width: 23px !important; height: 23px !important; margin-top: 6px;
         }
+        #partners .partner-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 32px 24px;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(10px);
+        }
+        #partners .partner-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+        #partners .partner-logo-wrapper {
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #partners .partner-logo {
+            max-width: 100%;
+            max-height: 90px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.35s ease;
+        }
+        #partners .partner-card:hover .partner-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
         @media (min-width: 576px) {
             .square-point { width: 23px !important; height: 23px !important; margin-top: 8px !important; }
         }
@@ -415,6 +507,7 @@
             initReveal('#vision .reveal', 100);
             initReveal('#missions .reveal', 100);
             initReveal('#offerings .reveal', 100);
+            initReveal('#partners .reveal', 100);
             initReveal('#contact-form .reveal', 100);
             initReveal('#contact-map .reveal', 100);
             initReveal('#contact-option .reveal', 150);
