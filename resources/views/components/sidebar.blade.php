@@ -2,7 +2,7 @@
     <div class="navbar-wrapper">
         <div class="m-header">
             <a href="{{ route('dashboard.index') }}" class="b-brand d-flex align-items-center gap-2 fs-3 fw-bold">
-                <img height="50" src="{{ asset('static/img/logo.svg') }}" alt="Logo {{ config('app.name') }}">
+                <img height="44" src="{{ asset('static/img/logo.svg') }}" alt="Logo {{ config('app.name') }}">
             </a>
         </div>
         <div class="navbar-content" data-lenis-prevent>

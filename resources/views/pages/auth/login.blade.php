@@ -5,7 +5,7 @@
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="d-none d-lg-block col-12 col-lg-8 px-0 mx-0">
-                    <img class="w-100 h-100 object-fit-cover" style="object-position: center;" src="{{ asset('static/img/placeholder-2.jpg') }}" alt="Login Placeholder Image">
+                    <img class="w-100 h-100 object-fit-cover" style="object-position: center;" src="{{ asset('static/img/placeholder-1.webp') }}" alt="Login Placeholder Image">
                 </div>
                 <div class="col-12 col-sm-8 col-md-5 col-lg-4 py-4 py-lg-0 h-lg-100 d-lg-flex align-items-lg-center justify-content-lg-center">
                     <div class="card border-0 p-lg-5">
