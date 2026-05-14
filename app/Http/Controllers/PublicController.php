@@ -7,6 +7,7 @@ use Illuminate\View\View;
 // Models
 use App\Models\MasterData\Vision;
 use App\Models\MasterData\Mission;
+use App\Models\MasterData\Partner;
 use App\Models\MasterData\Offering;
 use App\Models\MasterData\CompanyValue;
 
@@ -18,12 +19,14 @@ class PublicController extends Controller
         $missions = Mission::orderBy('order', 'asc')->get();
         $company_values = CompanyValue::orderBy('order', 'asc')->get();
         $offerings = Offering::orderBy('type', 'asc')->get();
+        $partners = Partner::where('is_featured', true)->orderBy('order', 'asc')->get();
 
         $data = [
             'visions' => $visions,
             'missions' => $missions,
             'company_values' => $company_values,
             'offerings' => $offerings,
+            'partners' => $partners,
         ];
 
         return view('pages.index', $data);
