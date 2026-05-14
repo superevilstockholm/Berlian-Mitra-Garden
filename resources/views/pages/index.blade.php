@@ -6,10 +6,11 @@
             <div class="row">
                 <div class="col px-0 position-relative">
                     <img class="w-100 h-100 object-fit-cover" style="max-height: 580px;"
-                        src="{{ asset('static/img/hero-image.jpg') }}" alt="{{ config('app.name') }} Hero Image">
+                        src="{{ asset('static/img/hero-image.webp') }}" alt="{{ config('app.name') }} Hero Image">
                     <div
-                        class="position-absolute z-1 w-100 h-100 d-flex align-items-center justify-content-center top-0 start-0 bg-dark bg-opacity-50 pb-30px pb-lg-60px">
+                        class="position-absolute z-1 w-100 h-100 d-flex flex-column align-items-center justify-content-center top-0 start-0 bg-dark bg-opacity-50 pb-30px pb-lg-60px">
                         <h1 class="p-0 m-0 text-white fw-bold display-4">{{ config('app.name') }}</h1>
+                        <p class="text-light fs-5">Partner Terpercaya Pengadaan Barang & Jasa untuk Berbagai Industri</p>
                     </div>
                 </div>
             </div>
@@ -27,15 +28,58 @@
             </div>
         </div>
     </section>
+    <section id="about">
+        <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
+            <div class="container">
+                <div class="row g-4 g-lg-5 flex-column-lg-reverse flex-lg-row">
+                    <div class="col-12 col-lg-6 mb-0">
+                        <img class="img-fluid rounded" src="{{ asset('static/img/berlian-mitra-garden.webp') }}" alt="{{ config('app.name') }}">
+                    </div>
+                    <div class="col-12 col-lg-6 mb-0">
+                        <div class="mb-0 d-flex flex-column text-primary">
+                            <h1 class="display-6 fw-bold mb-4 d-flex align-items-start text-primary">
+                                <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0"
+                                    style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                                Tentang Kami
+                            </h1>
+                            <ul class="list-unstyled">
+                                <li class="text-secondary d-flex align-items-start reveal mb-3">
+                                    <span class="fs-5">CV. Berlian Mitra Garden didirikan di Kabupaten Tangerang pada 10 Januari 2023 berdasarkan Akta Pendirian Perusahaan yang dikeluarkan oleh Notaris Nurbani Alam, S.H.</span>
+                                </li>
+                                <li class="text-secondary d-flex align-items-start reveal mb-3">
+                                    <span class="fs-5">Bergerak dalam bidang Trade, Supply & Services yang berfokus pada pengadaan barang dan jasa dalam negeri untuk memenuhi kebutuhan sektor pemerintahan dan perusahaan swasta.</span>
+                                </li>
+                                <li class="text-secondary d-flex align-items-start reveal mb-0">
+                                    <span class="fs-5">Sesuai visi dan misi perusahaan kami terus melakukan inovasi dengan meningkatkan kualitas sumber daya yang kami miliki, dan berkomitmen memberikan produk serta layanan terbaik bagi seluruh pemangku kepentingan.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                <div class="d-flex align-items-start">
+                    <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
+                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                        <div class="bg-primary-dark" style="flex: 2; height: 30px;"></div>
+                        <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                        <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                        <div class="bg-primary-dark" style="flex: 1; height: 30px;"></div>
+                    </div>
+                    <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="vision-and-missions">
         <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="vision">
             <div class="container">
                 <div class="row g-4 g-lg-5">
                     <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-white">
-                            <span class="bg-white d-block me-3 me-lg-4"
-                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
-                            Our Vision
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
+                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0"
+                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            Visi Kami
                         </h1>
                     </div>
                     <div class="col-12 col-lg-6">
@@ -74,10 +118,10 @@
                         </ul>
                     </div>
                     <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4"
-                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
-                            Our Missions
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-primary">
+                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0"
+                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            Misi Kami
                         </h1>
                     </div>
                 </div>
@@ -101,10 +145,10 @@
             <div class="container">
                 <div class="row g-4 g-lg-5 flex-column-reverse flex-lg-row">
                     <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-white">
-                            <span class="bg-white d-block me-3 me-lg-4"
-                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
-                            Company Values
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
+                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0"
+                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            Nilai-nilai Perusahaan
                         </h1>
                     </div>
                     <div class="col-12 col-lg-6">
@@ -141,34 +185,34 @@
             <div class="container">
                 <div class="row g-4 g-lg-5">
                     <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4"
-                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
-                            Let Us Assist You
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-primary">
+                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0"
+                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            Biarkan Kami Membantu Anda
                         </h1>
                     </div>
                     <div class="col-12 col-lg-6">
                         <form autocomplete="off" class="p-0 m-0" action="{{ route('contact.attempt') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3 reveal">
-                                <label for="name" class="form-label fw-medium mb-0">Full Name <span
+                                <label for="name" class="form-label fw-medium mb-0">Nama Lengkap <span
                                         class="text-danger">*</span></label>
                                 <input type="text" class="form-control form-control-sm border-0 border-bottom rounded-0 bg-transparent"
                                     id="name" name="name" value="{{ old('name') }}" autocomplete="off" required>
                             </div>
                             <div class="form-group mb-3 reveal">
-                                <label for="email" class="form-label fw-medium mb-0">Email Address <span
+                                <label for="email" class="form-label fw-medium mb-0">Alamat Email <span
                                         class="text-danger">*</span></label>
                                 <input type="email" class="form-control form-control-sm border-0 border-bottom rounded-0 bg-transparent"
                                     id="email" name="email" value="{{ old('email') }}" autocomplete="off" required>
                             </div>
                             <div class="form-group mb-3 reveal">
-                                <label for="phone" class="form-label fw-medium mb-0">Phone</label>
+                                <label for="phone" class="form-label fw-medium mb-0">Nomor Telepon</label>
                                 <input type="text" class="form-control form-control-sm border-0 border-bottom rounded-0 bg-transparent"
                                     id="phone" name="phone" value="{{ old('phone') }}" placeholder="+62" autocomplete="off">
                             </div>
                             <div class="form-group mb-3 reveal">
-                                <label for="message" class="form-label fw-medium mb-0">Message <span
+                                <label for="message" class="form-label fw-medium mb-0">Pesan <span
                                         class="text-danger">*</span></label>
                                 <textarea class="form-control form-control-sm border-0 border-bottom rounded-0 bg-transparent" id="message" name="message"
                                     autocomplete="off" required>{{ old('message') }}</textarea>
@@ -176,7 +220,7 @@
                             <div class="cf-turnstile mb-3"
                                 data-sitekey="{{ config('services.turnstile.site_key') }}">
                             </div>
-                            <button class="btn btn-sm btn-primary-dark w-100 reveal" type="submit">Submit</button>
+                            <button class="btn btn-sm btn-primary-dark w-100 reveal" type="submit">Kirim</button>
                         </form>
                     </div>
                 </div>
@@ -198,10 +242,10 @@
             <div class="container">
                 <div class="row g-4 g-lg-5 flex-lg-row-reverse">
                     <div class="col-12 col-lg-4">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-white">
-                            <span class="bg-white d-block me-3 me-lg-4"
-                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
-                            Our Location
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
+                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0"
+                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            Lokasi Kami
                         </h1>
                     </div>
                     <div class="col-12 col-lg-8" style="height: 450px;">
@@ -226,10 +270,10 @@
             <div class="container">
                 <div class="row g-4 g-lg-5">
                     <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-center text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4"
-                                style="width: 23px; height: 23px; transform: rotate(45deg);"></span>
-                                Get In Touch
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-primary">
+                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0"
+                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                                Hubungi Kami
                         </h1>
                     </div>
                     <div class="col-12 col-lg-6">
