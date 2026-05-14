@@ -1,6 +1,16 @@
 [phases.setup]
 nixPkgs = [
-  "php83",
-  "php83Extensions.exif",
-  "php83Extensions.gd"
+    "php83",
+    "php83Extensions.imagick",
+    "php83Extensions.pdo_pgsql",
+    "imagemagick",
+    "libjpeg",
+    "libpng",
+    "zlib",
+    "pngquant",
+    "jpegoptim"
 ]
+
+[phases.build]
+dependsOn = ["setup"]
+cmds = ["composer install --no-dev", "npm install && npm run build"]
