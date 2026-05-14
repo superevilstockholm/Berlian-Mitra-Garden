@@ -231,14 +231,14 @@
                 </div>
                 <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
                     <div class="d-flex align-items-start">
-                        <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                        <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
                         <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
-                            <div class="bg-body" style="flex: 2; height: 30px;"></div>
-                            <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
-                            <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
-                            <div class="bg-body" style="flex: 1; height: 30px;"></div>
+                            <div class="bg-primary-dark" style="flex: 2; height: 30px;"></div>
+                            <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                            <div class="bg-primary-dark" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                            <div class="bg-primary-dark" style="flex: 1; height: 30px;"></div>
                         </div>
-                        <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                        <div class="bg-primary-dark flex-grow-1" style="height: 30px;"></div>
                     </div>
                 </div>
             </div>
@@ -293,6 +293,18 @@
                                 @endforeach
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                        <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                            <div class="bg-body" style="flex: 2; height: 30px;"></div>
+                            <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                            <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                            <div class="bg-body" style="flex: 1; height: 30px;"></div>
+                        </div>
+                        <div class="bg-body flex-grow-1" style="height: 30px;"></div>
                     </div>
                 </div>
             </div>
