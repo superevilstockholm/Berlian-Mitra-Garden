@@ -8,7 +8,7 @@
                     <img class="w-100 h-100 object-fit-cover" style="max-height: 580px;"
                         src="{{ asset('static/img/hero-image.webp') }}" alt="{{ config('app.name') }} Hero Image">
                     <div
-                        class="position-absolute z-1 w-100 h-100 d-flex flex-column align-items-center justify-content-center top-0 start-0 bg-dark bg-opacity-50 pb-30px pb-lg-60px">
+                        class="position-absolute z-1 w-100 h-100 text-center d-flex flex-column align-items-center justify-content-center top-0 start-0 bg-dark bg-opacity-50 pb-30px pb-lg-60px">
                         <h1 class="p-0 m-0 text-white fw-bold display-4">{{ config('app.name') }}</h1>
                         <p class="text-light fs-5">Partner Terpercaya Pengadaan Barang & Jasa untuk Berbagai Industri</p>
                     </div>
@@ -38,11 +38,11 @@
                     <div class="col-12 col-lg-6 mb-0">
                         <div class="mb-0 d-flex flex-column text-primary">
                             <h1 class="display-6 fw-bold mb-4 d-flex align-items-start text-primary">
-                                <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0"
-                                    style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                                <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                    style="transform: rotate(45deg);"></span>
                                 Tentang Kami
                             </h1>
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled mb-0">
                                 <li class="text-secondary d-flex align-items-start reveal mb-3">
                                     <span class="fs-5">CV. Berlian Mitra Garden didirikan di Kabupaten Tangerang pada 10 Januari 2023 berdasarkan Akta Pendirian Perusahaan yang dikeluarkan oleh Notaris Nurbani Alam, S.H.</span>
                                 </li>
@@ -75,10 +75,10 @@
         <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="vision">
             <div class="container">
                 <div class="row g-4 g-lg-5">
-                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                    <div class="col-12 col-lg-6 mb-0">
                         <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
-                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0"
-                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                style="transform: rotate(45deg);"></span>
                             Visi Kami
                         </h1>
                     </div>
@@ -108,19 +108,19 @@
             <div class="container">
                 <div class="row g-4 g-lg-5 flex-column-reverse flex-lg-row">
                     <div class="col-12 col-lg-6">
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled mb-0">
                             @foreach ($missions as $mission)
                                 <li class="text-secondary d-flex align-items-start reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
-                                    <span class="me-3 mt-2" style="width: 10px; height: 10px; background-color: white; transform: rotate(45deg); flex-shrink: 0;"></span>
+                                    <span class="me-3 mt-2 bg-primary" style="width: 10px; height: 10px; transform: rotate(45deg); flex-shrink: 0;"></span>
                                     <span class="fs-5">{{ $mission->content }}</span>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
-                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                    <div class="col-12 col-lg-6 mb-0">
                         <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0"
-                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                style="transform: rotate(45deg);"></span>
                             Misi Kami
                         </h1>
                     </div>
@@ -143,16 +143,16 @@
     <section id="company-values">
         <div class="position-relative bg-primary-dark pb-60px pb-lg-90px pt-30px pt-lg-60px" id="missions">
             <div class="container">
-                <div class="row g-4 g-lg-5 flex-column-reverse flex-lg-row">
-                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                <div class="row g-4 g-lg-5 flex-column-lg-reverse flex-lg-row">
+                    <div class="col-12 col-lg-6 mb-0">
                         <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
-                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0"
-                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                style="transform: rotate(45deg);"></span>
                             Nilai-nilai Perusahaan
                         </h1>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled mb-0">
                             @foreach ($company_values as $company_value)
                                 <li class="text-white d-flex align-items-start reveal {{ !$loop->last ? 'mb-3' : 'mb-0' }}">
                                     <span class="me-3 mt-2 bg-white" style="width: 10px; height: 10px; transform: rotate(45deg); flex-shrink: 0;"></span>
@@ -184,10 +184,10 @@
         <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="contact-form">
             <div class="container">
                 <div class="row g-4 g-lg-5">
-                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                    <div class="col-12 col-lg-6 mb-0">
                         <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0"
-                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                style="transform: rotate(45deg);"></span>
                             Biarkan Kami Membantu Anda
                         </h1>
                     </div>
@@ -243,8 +243,8 @@
                 <div class="row g-4 g-lg-5 flex-lg-row-reverse">
                     <div class="col-12 col-lg-4">
                         <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-white">
-                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0"
-                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            <span class="bg-white d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                style="transform: rotate(45deg);"></span>
                             Lokasi Kami
                         </h1>
                     </div>
@@ -269,10 +269,10 @@
         <div class="pb-30px pb-lg-60px pt-30px pt-lg-60px" id="contact-option">
             <div class="container">
                 <div class="row g-4 g-lg-5">
-                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                    <div class="col-12 col-lg-6 mb-0">
                         <h1 class="display-6 fw-bold mb-0 d-flex align-items-start text-primary">
-                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0"
-                                style="width: 23px; height: 23px; transform: rotate(45deg); margin-top: 12px;"></span>
+                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                style="transform: rotate(45deg);"></span>
                                 Hubungi Kami
                         </h1>
                     </div>
@@ -335,6 +335,18 @@
         }
         html[data-bs-theme="dark"] .border-bottom {
             border-bottom: 1px solid rgba(var(--bs-body-color-rgb), 0.1) !important;
+        }
+        .square-point {
+            width: 23px !important; height: 23px !important; margin-top: 6px;
+        }
+        @media (min-width: 576px) {
+            .square-point { width: 23px !important; height: 23px !important; margin-top: 8px !important; }
+        }
+        @media (min-width: 768px) {
+            .square-point { width: 23px !important; height: 23px !important; margin-top: 10px !important; }
+        }
+        @media (min-width: 992px) {
+            .square-point { width: 23px !important; height: 23px !important; margin-top: 13px !important; }
         }
     </style>
 @endpush
