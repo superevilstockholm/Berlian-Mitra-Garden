@@ -4,9 +4,13 @@ namespace App\Http\Controllers\MasterData;
 
 use Carbon\Carbon;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+
+use Spatie\Image\Image;
+use Spatie\Image\Enums\Fit;
 
 // Models
 use App\Models\MasterData\Offering;
@@ -18,6 +22,28 @@ use App\Http\Requests\MasterData\Offering\UpdateRequest;
 
 class OfferingController extends Controller
 {
+    private function processImage($file): string
+    {
+        $filename = Str::uuid() . '.webp';
+
+        $relativePath = 'offering/' . $filename;
+
+        $destination = storage_path('app/public/' . $relativePath);
+
+        // create folder if not exists
+        if (!file_exists(dirname($destination))) {
+            mkdir(dirname($destination), 0777, true);
+        }
+
+        Image::load($file->getRealPath())
+            ->fit(Fit::Max, 720, 480)
+            ->quality(70)
+            ->format('webp')
+            ->save($destination);
+
+        return $relativePath;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -67,7 +93,9 @@ class OfferingController extends Controller
         $validated = $request->validated();
 
         if ($request->hasFile('image_file')) {
-            $validated['image_path'] = $request->file('image_file')->store('offering', 'public');
+            $validated['image_path'] = $this->processImage(
+                $request->file('image_file')
+            );
         }
 
         $offering = Offering::create($validated);
@@ -106,7 +134,9 @@ class OfferingController extends Controller
             if ($offering->image_path && Storage::disk('public')->exists($offering->image_path)) {
                 Storage::disk('public')->delete($offering->image_path);
             }
-            $validated['image_path'] = $request->file('image_file')->store('offering', 'public');
+            $validated['image_path'] = $this->processImage(
+                $request->file('image_file')
+            );
         }
 
         $offering->update($validated);
