@@ -1,0 +1,9 @@
+[phases.setup]
+nixPkgs = [
+  "php83",
+  "php83Extensions.exif",
+  "php83Extensions.gd",
+  "php83Extensions.redis",
+  "php83Extensions.pdo_pgsql",
+  "imagemagick"
+]
