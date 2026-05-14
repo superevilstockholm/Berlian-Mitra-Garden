@@ -180,6 +180,64 @@
             </div>
         </div>
     </section>
+    <section id="offerings">
+        <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12">
+                        <h1 class="display-6 fw-bold mb-0 d-flex align-items-start justify-content-center text-primary">
+                            <span class="bg-primary d-block me-3 me-lg-4 flex-shrink-0 square-point"
+                                style="transform: rotate(45deg);"></span>
+                            Produk & Layanan
+                        </h1>
+                    </div>
+                    <div class="col-12">
+                        <div class="row g-3">
+                            @foreach ($offerings as $offering)
+                                <div class="col-12 col-md-6 col-lg-4 reveal">
+                                    <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                                        <div class="card-header p-0 border-0 bg-transparent position-relative">
+                                            <img class="w-100 object-fit-cover"
+                                                src="{{ $offering->image_url }}"
+                                                alt="{{ $offering->name }}"
+                                                style="height: 220px;">
+                                            <div class="position-absolute top-0 end-0 p-3">
+                                                <span class="badge text-bg-light rounded-pill px-3 py-2 shadow-sm">
+                                                    {{ $offering->type->label() }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-4 d-flex flex-column">
+                                            <h5 class="fw-bold mb-3">
+                                                {{ $offering->name }}
+                                            </h5>
+                                            @if ($offering->description)
+                                                <p class="text-secondary mb-0">
+                                                    {{ $offering->description }}
+                                                </p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute z-2 w-100 top-100 start-0" style="transform: translateY(-100%);">
+                <div class="d-flex align-items-start">
+                    <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                    <div class="container d-flex p-0" style="flex: 0 0 auto; width: 100%;">
+                        <div class="bg-body" style="flex: 2; height: 30px;"></div>
+                        <div class="bg-body" style="width: 30px; height: 30px; border-top-right-radius: 100%;"></div>
+                        <div class="bg-body" style="width: 30px; height: 30px; border-top-left-radius: 100%;"></div>
+                        <div class="bg-body" style="flex: 1; height: 30px;"></div>
+                    </div>
+                    <div class="bg-body flex-grow-1" style="height: 30px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="contact-us">
         <div class="position-relative pb-60px pb-lg-90px pt-30px pt-lg-60px" id="contact-form">
             <div class="container">
@@ -356,6 +414,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             initReveal('#vision .reveal', 100);
             initReveal('#missions .reveal', 100);
+            initReveal('#offerings .reveal', 100);
             initReveal('#contact-form .reveal', 100);
             initReveal('#contact-map .reveal', 100);
             initReveal('#contact-option .reveal', 150);
